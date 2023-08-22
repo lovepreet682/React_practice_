@@ -33,37 +33,45 @@ function PrintUserDetails() {
             <div id='PrintUserDetails'>
                 <div className="container">
                     <div className="col-md-8 m-auto pt-5">
-                        <div className='d-flex justify-content mb-1'>
+                        <div className='d-flex justify-content-between mb-1'>
                             <input type="search" placeholder='Search' onChange={SearchName} className='form-control w-50 mx-1' />
-                            <button className='btn btn-success' onClick={DownloadPDF}>Print data</button>
+                            <button className='btn btn-danger' onClick={DownloadPDF}>Print data</button>
                         </div>
 
                         {/* Use the Component PDF */}
                         <div ref={ComponentPDF} style={{ width: "100%" }}>
-                            <table class="table ">
-                                <thead>
-                                    <tr className='table-dark'>
-                                        <th scope="col">Exato ID</th>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Email</th>
-                                        <th scope="col">Position</th>
-                                        <th scope="col">City</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {
-                                        SearchNameItem.map((item) => (
-                                            <tr>
-                                                <td >{item.id}</td>
-                                                <td>{item.name}</td>
-                                                <td>{item.email}</td>
-                                                <td>{item.Position}</td>
-                                                <td>{item.City}</td>
-                                            </tr>
-                                        ))
-                                    }
-                                </tbody>
-                            </table>
+                            {
+                                SearchNameItem.length === 0 ? (
+                                    <p className='text-center fs-5 pt-4 text-danger'>This Data Is Not Exist</p>
+                                ) : <table class="table">
+                                    <thead>
+                                        <tr className='table-dark'>
+                                            <th scope='col'>Sr No</th>
+                                            <th scope="col">Exato ID</th>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Email</th>
+                                            <th scope="col">Position</th>
+                                            <th scope="col">City</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {
+                                            SearchNameItem.map((item, index) => (
+                                                <tr key={item.id}>
+                                                    <td>{index + 1}</td>
+                                                    <td >{item.id}</td>
+                                                    <td>{item.name}</td>
+                                                    <td>{item.email}</td>
+                                                    <td>{item.Position}</td>
+                                                    <td>{item.City}</td>
+                                                </tr>
+                                            ))
+                                        }
+                                    </tbody>
+                                </table>
+
+                            }
+
                         </div>
                     </div>
                 </div>
