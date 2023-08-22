@@ -1,7 +1,9 @@
 .App {
   text-align: center;
 }
-
+.body{
+  background-image: linear-gradient(to bottom right, red, yellow);
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -35,4 +37,17 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+#formValidation{
+height: 38rem;
+background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
+}
+
+span {
+  color: #e74c3c;
+  font-weight: 500;
+  font-size: 18px;
+  margin-top: 5px;
+ 
 }
